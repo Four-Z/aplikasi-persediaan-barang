@@ -32,6 +32,13 @@ Route::middleware(['IsStaff'])->prefix('staff')->group(function () {
     Route::delete('/hapus-barang/{barang}', [App\Http\Controllers\Staff\StokBarangController::class, 'hapus_barang'])->name('hapus_barang');
 
     Route::get('/data-supplier', [App\Http\Controllers\Staff\DataSupplierController::class, 'index'])->name('data_supplier');
+    Route::get('/tambah-supplier', [App\Http\Controllers\Staff\DataSupplierController::class, 'tambah_supplier_page'])->name('tambah_supplier_page');
+    Route::post('/tambah-supplier', [App\Http\Controllers\Staff\DataSupplierController::class, 'tambah_supplier'])->name('tambah_supplier');
+    Route::get('/edit-supplier/{supplier}', [App\Http\Controllers\Staff\DataSupplierController::class, 'edit_supplier_page'])->name('edit_supplier_page');
+    Route::put('/edit-supplier/{supplier}', [App\Http\Controllers\Staff\DataSupplierController::class, 'edit_supplier'])->name('edit_supplier');
+    Route::delete('/hapus-supplier/{supplier}', [App\Http\Controllers\Staff\DataSupplierController::class, 'hapus_supplier'])->name('hapus_supplier');
+
+
     Route::get('/barang-masuk', [App\Http\Controllers\Staff\BarangMasukController::class, 'index'])->name('barang_masuk');
     Route::get('/barang-keluar', [App\Http\Controllers\Staff\BarangKeluarController::class, 'index'])->name('barang_keluar');
     Route::get('/laporan', [App\Http\Controllers\Staff\LaporanController::class, 'index'])->name('staff.laporan');

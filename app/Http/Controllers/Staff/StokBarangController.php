@@ -71,8 +71,8 @@ class StokBarangController extends Controller
             session()->flash('message_success', 'Berhasil Mengedit Barang');
             alert()->success('Berhasil', 'Barang berhasil diedit');
         } catch (Exception $err) {
-            session()->flash('message_fail', 'Gagal Menambah Barang');
-            alert()->error('Gagal', 'Barang Gagal Ditambahkan');
+            session()->flash('message_fail', 'Gagal Mengedit Barang');
+            alert()->error('Gagal', 'Barang Gagal Diedit');
         }
 
         return redirect()->route('stok_barang');

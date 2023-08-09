@@ -6,9 +6,29 @@
 
 @section('content')
     <!-- Begin Page Content -->
+
+    @if (session()->has('message_success'))
+        <div class="col-md-8 ml-4">
+            <div class="alert alert-info alert-dismissable">
+                <a class="panel-close close" data-dismiss="alert">×</a>
+                <i class="fa fa-coffee"></i>
+                <div>{{ session('message_success') }}</div>
+            </div>
+        </div>
+    @elseif (session()->has('message_fail'))
+        <div class="col-md-8 ml-4">
+            <div class="alert alert-danger alert-dismissable">
+                <a class="panel-close close" data-dismiss="alert">×</a>
+                <i class="fa fa-coffee"></i>
+                <div>{{ session('message_fail') }}</div>
+            </div>
+        </div>
+    @endif
+
+
     <div class="container-fluid">
         <div class="p-3">
-            <a href="#" class="btn btn-primary btn-icon-split">
+            <a href="{{ route('tambah_supplier_page') }}" class="btn btn-primary btn-icon-split">
                 <span class="icon text-white-50">
                     <i class="fa-solid fa-plus"></i>
                 </span>
@@ -43,22 +63,61 @@
                         </tfoot>
                         <tbody>
                             <tr>
-                                <td>Tiger Nixon</td>
-                                <td>System Architect</td>
-                                <td>Edinburgh</td>
+                                @foreach ($supplier as $s)
+                                    <td>{{ $s->nama_supplier }}</td>
+                                    <td>{{ $s->lokasi_supplier }}</td>
+                                    <td>{{ $s->kontak_supplier }}</td>
 
-                                <td>
-                                    <center>
-                                        <a href="#" class="btn btn-warning btn-circle btn-sm">
-                                            <i class="fa-solid fa-pen-to-square"></i>
-                                        </a>
+                                    <td>
+                                        <center>
+                                            <form action="{{ route('edit_supplier_page', $s->id) }}" method="GET"
+                                                class="d-inline-block">
+                                                @csrf
+                                                <button class="btn btn-warning btn-circle btn-sm">
+                                                    <i class="fa-solid fa-pen-to-square"></i>
+                                                </button>
+                                            </form>
 
-                                        <a href="#" class="btn btn-danger btn-circle btn-sm">
-                                            <i class="fas fa-trash"></i>
-                                        </a>
-                                    </center>
-                                </td>
+                                            <button class="btn btn-danger btn-circle btn-sm" data-toggle="modal"
+                                                data-target="#modal-{{ $s->id }}">
+                                                <i class="fas fa-trash"></i>
+                                            </button>
+
+                                            <!-- Modal -->
+                                            <div class="modal fade" id="modal-{{ $s->id }}" tabindex="-1"
+                                                role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                <div class="modal-dialog" role="document">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h5 class="modal-title" id="exampleModalLabel">Konfirmasi</h5>
+                                                            <button type="button" class="close" data-dismiss="modal"
+                                                                aria-label="Close">
+                                                                <span aria-hidden="true">&times;</span>
+                                                            </button>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            <h5>Anda yakin ingin menghapus?</h5>
+                                                            <form action="{{ route('hapus_supplier', $s->id) }}"
+                                                                method="POST" class="d-inline-block">
+                                                                @csrf
+                                                                @method('delete')
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <button type="button" class="btn btn-secondary"
+                                                                data-dismiss="modal">Close</button>
+                                                            <button type="submit" class="btn btn-danger">Hapus</button>
+                                                        </div>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </center>
+                                    </td>
+
+
                             </tr>
+                            @endforeach
 
                         </tbody>
                     </table>
