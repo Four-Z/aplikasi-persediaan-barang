@@ -26,6 +26,10 @@ Route::middleware(['IsStaff'])->prefix('staff')->group(function () {
 
     Route::get('/stok-barang', [App\Http\Controllers\Staff\StokBarangController::class, 'index'])->name('stok_barang');
     Route::get('/tambah-barang', [App\Http\Controllers\Staff\StokBarangController::class, 'tambah_barang_page'])->name('tambah_barang_page');
+    Route::post('/tambah-barang', [App\Http\Controllers\Staff\StokBarangController::class, 'tambah_barang'])->name('tambah_barang');
+    Route::get('/edit-barang/{barang}', [App\Http\Controllers\Staff\StokBarangController::class, 'edit_barang_page'])->name('edit_barang_page');
+    Route::put('/edit-barang/{barang}', [App\Http\Controllers\Staff\StokBarangController::class, 'edit_barang'])->name('edit_barang');
+    Route::delete('/hapus-barang/{barang}', [App\Http\Controllers\Staff\StokBarangController::class, 'hapus_barang'])->name('hapus_barang');
 
     Route::get('/data-supplier', [App\Http\Controllers\Staff\DataSupplierController::class, 'index'])->name('data_supplier');
     Route::get('/barang-masuk', [App\Http\Controllers\Staff\BarangMasukController::class, 'index'])->name('barang_masuk');

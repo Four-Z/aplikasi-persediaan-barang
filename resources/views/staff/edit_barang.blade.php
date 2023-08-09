@@ -6,16 +6,17 @@
             <div class="p-3 py-5">
                 <div class="d-flex mb-3">
                     <a href="{{ URL::previous() }}"><button type="button" class="btn btn-outline-primary">Back</button></a>
-                    <h4>&nbsp;Tambah Barang</h4>
+                    <h4>&nbsp;Edit Barang</h4>
 
                 </div>
-                <form action="{{ route('tambah_barang') }}" method="POST">
+                <form action="{{ route('edit_barang', $barang->id) }}" method="POST">
                     @csrf
+                    @method('put')
                     <div class="row mt-2">
                         <div class="col-md-12 mb-3">
                             <label class="labels">Nama Barang</label>
                             <input type="text" class="form-control" placeholder="nama barang..." name="nama_barang"
-                                required />
+                                value="{{ $barang->nama_barang }}" required />
                         </div>
                         @error('nama_barang')
                             <span class="invalid-feedback" role="alert">
@@ -25,7 +26,7 @@
                         <div class="col-md-12 mb-3">
                             <label class="labels">Harga Barang</label>
                             <input type="number" class="form-control" placeholder="harga barang..." name="harga_barang"
-                                required />
+                                value="{{ $barang->harga_barang }}" required />
                         </div>
 
                         @error('harga_barang')
@@ -35,8 +36,8 @@
                         @enderror
 
                         <div class="col-md-12 mb-3"><label class="labels">Stok Barang</label>
-                            <input type="number" class="form-control" placeholder="stok barang..." value="0"
-                                name="stok_barang" required />
+                            <input type="number" class="form-control" placeholder="stok barang..."
+                                value="{{ $barang->stok_barang }}" name="stok_barang" required />
                         </div>
 
                         @error('stok_barang')
@@ -47,7 +48,7 @@
                     </div>
 
                     <div class="mt-5 text-center"><button class="btn btn-primary profile-button"
-                            type="sumbit">Tambah</button>
+                            type="sumbit">Edit</button>
                 </form>
             </div>
         @endsection
