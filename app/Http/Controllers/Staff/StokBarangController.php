@@ -11,4 +11,9 @@ class StokBarangController extends Controller
     {
         return view('staff.stok_barang');
     }
+
+    public function tambah_barang_page()
+    {
+        return view('staff.tambah_barang');
+    }
 }

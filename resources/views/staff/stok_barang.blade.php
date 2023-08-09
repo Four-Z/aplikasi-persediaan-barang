@@ -7,7 +7,7 @@
     <!-- Begin Page Content -->
     <div class="container-fluid">
         <div class="p-3">
-            <a href="#" class="btn btn-primary btn-icon-split">
+            <a href="{{ route('tambah_barang_page') }}" class="btn btn-primary btn-icon-split">
                 <span class="icon text-white-50">
                     <i class="fa-solid fa-plus"></i>
                 </span>

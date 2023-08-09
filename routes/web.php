@@ -23,7 +23,10 @@ Auth::routes();
 Route::middleware(['IsStaff'])->prefix('staff')->group(function () {
     Route::get('/home', [App\Http\Controllers\Staff\HomeController::class, 'index'])->name('staff.home');
     Route::get('/profile', [App\Http\Controllers\Staff\ProfileController::class, 'index'])->name('staff.profile');
+
     Route::get('/stok-barang', [App\Http\Controllers\Staff\StokBarangController::class, 'index'])->name('stok_barang');
+    Route::get('/tambah-barang', [App\Http\Controllers\Staff\StokBarangController::class, 'tambah_barang_page'])->name('tambah_barang_page');
+
     Route::get('/data-supplier', [App\Http\Controllers\Staff\DataSupplierController::class, 'index'])->name('data_supplier');
     Route::get('/barang-masuk', [App\Http\Controllers\Staff\BarangMasukController::class, 'index'])->name('barang_masuk');
     Route::get('/barang-keluar', [App\Http\Controllers\Staff\BarangKeluarController::class, 'index'])->name('barang_keluar');
