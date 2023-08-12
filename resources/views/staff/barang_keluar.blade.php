@@ -8,7 +8,7 @@
     <!-- Begin Page Content -->
     <div class="container-fluid">
         <div class="p-3">
-            <a href="#" class="btn btn-primary btn-icon-split">
+            <a href="{{ route('tambah_barang_keluar_page') }}" class="btn btn-primary btn-icon-split">
                 <span class="icon text-white-50">
                     <i class="fa-solid fa-plus"></i>
                 </span>
@@ -42,22 +42,27 @@
                             </tr>
                         </tfoot>
                         <tbody>
-                            <tr>
-                                <td>Tiger Nixon</td>
-                                <td>System Architect</td>
-                                <td>Edinburgh</td>
-
-                                <td>
-                                    <center>
-                                        <a href="#" class="btn btn-info btn-icon-split">
-                                            <span class="icon text-white-50">
-                                                <i class="fas fa-info-circle"></i>
-                                            </span>
-                                            <span class="text">Lihat Detail</span>
-                                        </a>
-                                    </center>
-                                </td>
-                            </tr>
+                            @foreach ($barang_keluar as $bk)
+                                <tr>
+                                    <td>{{ $bk->id }}</td>
+                                    <td>{{ $bk->tanggal }}</td>
+                                    <td>{{ $bk->supplier->nama_supplier }}</td>
+                                    <td>
+                                        <center>
+                                            <form action="{{ route('barang_keluar_detail', $bk->id) }}" method="GET"
+                                                class="d-inline-block">
+                                                @csrf
+                                                <button class="btn btn-info btn-icon-split">
+                                                    <span class="icon text-white-50">
+                                                        <i class="fas fa-info-circle"></i>
+                                                    </span>
+                                                    <span class="text">Lihat Detail</span>
+                                                </button>
+                                            </form>
+                                        </center>
+                                    </td>
+                                </tr>
+                            @endforeach
 
                         </tbody>
                     </table>

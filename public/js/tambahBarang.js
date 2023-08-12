@@ -1,7 +1,9 @@
 var formfield = document.getElementById("barang");
 var number = 1;
 function add() {
-    var nama_barang = document.getElementById("nama_barang").value;
+    var barang = document.getElementById("nama_barang");
+    var nama_barang = barang.options[barang.selectedIndex].text;
+    var id_barang = barang.options[barang.selectedIndex].value;
     var jumlah_barang = document.getElementById("jumlah_barang").value;
 
     var newDiv = document.createElement("div");
@@ -12,7 +14,8 @@ function add() {
     // The HTML code to be inserted
     var htmlCode = `
         <div class="col-md-6">
-            <input type="text" class="form-control" value="nama_barang_value" name="nama_barang[]" required readonly />
+            <input type="text" class="form-control" value="nama_barang_value" disabled required readonly />
+            <input type="text" class="form-control" value="id_barang_value" name="nama_barang[]" hidden required readonly />
         </div>
         <div class="col-md-2">
             <input type="number" class="form-control" value="jumlah_barang_value" name="jumlah_barang[]" required readonly />
@@ -24,6 +27,7 @@ function add() {
         </div>
 `;
     htmlCode = htmlCode.replace("nama_barang_value", nama_barang);
+    htmlCode = htmlCode.replace("id_barang_value", id_barang);
     htmlCode = htmlCode.replace("jumlah_barang_value", jumlah_barang);
     var args_id = "remove(" + "'" + id + "'" + ")";
     htmlCode = htmlCode.replace("id_barang", args_id);

@@ -18,4 +18,19 @@ class BarangKeluar extends Model
         'catatan',
         'tanggal'
     ];
+
+    public function supplier()
+    {
+        return $this->belongsTo(Supplier::class);
+    }
+
+    public function detailBarangKeluar()
+    {
+        return $this->hasMany(DetailBarangKeluar::class);
+    }
+
+    public function staff()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

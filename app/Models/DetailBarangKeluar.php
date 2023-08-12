@@ -17,5 +17,8 @@ class DetailBarangKeluar extends Model
         'jumlah_barang'
     ];
 
-
+    public function barang()
+    {
+        return $this->belongsTo(Barang::class);
+    }
 }
