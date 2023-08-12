@@ -40,6 +40,11 @@ Route::middleware(['IsStaff'])->prefix('staff')->group(function () {
 
 
     Route::get('/barang-masuk', [App\Http\Controllers\Staff\BarangMasukController::class, 'index'])->name('barang_masuk');
+    Route::get('/tambah-barang-masuk', [App\Http\Controllers\Staff\BarangMasukController::class, 'tambah_barang_masuk_page'])->name('tambah_barang_masuk_page');
+    Route::post('/tambah-barang-masuk', [App\Http\Controllers\Staff\BarangMasukController::class, 'tambah_barang_masuk'])->name('tambah_barang_masuk');
+    Route::get('/barang-masuk-detail/{barang_masuk}', [App\Http\Controllers\Staff\BarangMasukController::class, 'barang_masuk_detail'])->name('barang_masuk_detail');
+
+
     Route::get('/barang-keluar', [App\Http\Controllers\Staff\BarangKeluarController::class, 'index'])->name('barang_keluar');
     Route::get('/laporan', [App\Http\Controllers\Staff\LaporanController::class, 'index'])->name('staff.laporan');
 });

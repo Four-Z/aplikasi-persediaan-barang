@@ -14,40 +14,46 @@
                     <div class="row mt-2">
                         <div class="col-md-12 mb-3">
                             <label class="labels">Nama Barang</label>
-                            <input type="text" class="form-control" placeholder="nama barang..." name="nama_barang"
-                                required />
+                            <input type="text" class="form-control @error('nama_barang') is-invalid @enderror"
+                                placeholder="nama barang..." name="nama_barang" required />
+                            @error('nama_barang')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
                         </div>
-                        @error('nama_barang')
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                        @enderror
+
                         <div class="col-md-12 mb-3">
                             <label class="labels">Harga Barang</label>
-                            <input type="number" class="form-control" placeholder="harga barang..." name="harga_barang"
-                                required />
+                            <input type="number" class="form-control @error('harga_barang') is-invalid @enderror"
+                                placeholder="harga barang..." name="harga_barang" required />
+                            @error('harga_barang')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
                         </div>
 
-                        @error('harga_barang')
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                        @enderror
+
 
                         <div class="col-md-12 mb-3"><label class="labels">Stok Barang</label>
-                            <input type="number" class="form-control" placeholder="stok barang..." value="0"
-                                name="stok_barang" required />
+                            <input type="number" class="form-control @error('stok_barang') is-invalid @enderror"
+                                placeholder="stok barang..." value="0" name="stok_barang" required />
+
+                            @error('stok_barang')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
                         </div>
 
-                        @error('stok_barang')
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                        @enderror
+
                     </div>
 
                     <div class="mt-5 text-center"><button class="btn btn-primary profile-button"
                             type="sumbit">Tambah</button>
                 </form>
             </div>
-        @endsection
+        </div>
+    </div>
+@endsection

@@ -56,4 +56,6 @@
                             type="sumbit">Tambah</button>
                 </form>
             </div>
-        @endsection
+        </div>
+    </div>
+@endsection

@@ -16,10 +16,14 @@ return new class extends Migration
         Schema::create('barang_masuk', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('supplier_id');
+            $table->unsignedBigInteger('staff_id');
+            $table->text('catatan');
+            $table->date('tanggal');
             $table->timestamps();
 
             // Definisi Reference
             $table->foreign('supplier_id')->references('id')->on('supplier');
+            $table->foreign('staff_id')->references('id')->on('users');
         });
     }
 
