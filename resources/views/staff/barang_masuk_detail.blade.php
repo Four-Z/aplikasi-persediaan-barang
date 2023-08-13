@@ -58,7 +58,7 @@
                     @php
                         $total = 0;
                     @endphp
-                    @foreach ($barang_masuk->detailBarangMasuk as $bmd)
+                    @foreach ($barang_masuk->detailBarang as $bmd)
                         <tr>
                             <td>
                                 {{ $bmd->barang_id }}
@@ -67,7 +67,7 @@
                                 {{ $bmd->barang->nama_barang }}
                             </td>
                             <td>
-                                {{ $bmd->barang->harga_barang }}
+                                Rp. {{ number_format($bmd->barang->harga_barang) }}
                             </td>
                             <td>
                                 {{ $bmd->jumlah_barang }}
@@ -94,8 +94,8 @@
             <div class="col-md-10 border">
                 <div class="p-3">
                     <center>
-                        <a href=""><button type="submit" class="btn btn-success mt-2"
-                                style="width: 200px">CETAK</button></a>
+                        <a href="{{ route('cetak_barang_masuk', $barang_masuk->id) }}" target="_blank"><button
+                                type="submit" class="btn btn-success mt-2" style="width: 200px">CETAK</button></a>
 
                         <a href="{{ URL::previous() }}"><button type="button" class="btn btn-primary mt-2"
                                 style="width: 200px">KEMBALI</button></a>

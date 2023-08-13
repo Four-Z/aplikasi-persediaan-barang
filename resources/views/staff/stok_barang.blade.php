@@ -63,7 +63,7 @@
                             @foreach ($barang as $b)
                                 <tr>
                                     <td>{{ $b->nama_barang }}</td>
-                                    <td>{{ $b->harga_barang }}</td>
+                                    <td>Rp. {{ number_format($b->harga_barang) }}</td>
                                     <td>{{ $b->stok_barang }}</td>
                                     <td>
                                         <center>

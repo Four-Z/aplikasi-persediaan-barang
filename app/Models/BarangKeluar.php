@@ -24,7 +24,7 @@ class BarangKeluar extends Model
         return $this->belongsTo(Supplier::class);
     }
 
-    public function detailBarangKeluar()
+    public function detailBarang()
     {
         return $this->hasMany(DetailBarangKeluar::class);
     }

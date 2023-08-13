@@ -96,4 +96,12 @@ class BarangKeluarController extends Controller
             'barang_keluar' => $barang_keluar
         ]);
     }
+
+    public function cetak_barang_keluar(BarangKeluar $barang_keluar)
+    {
+        return view('staff.cetak_detail_barang', [
+            'judul' => "Keluar",
+            'barang' => $barang_keluar
+        ]);
+    }
 }
