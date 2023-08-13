@@ -62,6 +62,9 @@ Route::middleware(['IsPimpinan'])->prefix('pimpinan')->group(function () {
     Route::get('/profile', [App\Http\Controllers\Pimpinan\ProfileController::class, 'index'])->name('pimpinan.profile');
 
     Route::get('/kelola-staff', [App\Http\Controllers\Pimpinan\KelolaStaffController::class, 'index'])->name('kelola_staff');
+    Route::get('/tambah_staff', [App\Http\Controllers\Pimpinan\KelolaStaffController::class, 'tambah_staff_page'])->name('tambah_staff_page');
+    Route::post('/tambah_staff', [App\Http\Controllers\Pimpinan\KelolaStaffController::class, 'tambah_staff'])->name('tambah_staff');
+    Route::delete('/hapus-staff/{staff}', [App\Http\Controllers\Pimpinan\KelolaStaffController::class, 'hapus_staff'])->name('hapus_staff');
 
     Route::get('/laporan', [App\Http\Controllers\Pimpinan\LaporanController::class, 'index'])->name('pimpinan.laporan');
     Route::get('/cari-laporan-barang', [App\Http\Controllers\Pimpinan\LaporanController::class, 'cari_laporan'])->name('pimpinan.cari_laporan');
