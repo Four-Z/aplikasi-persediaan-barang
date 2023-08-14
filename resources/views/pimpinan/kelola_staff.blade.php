@@ -25,7 +25,7 @@
                     <tr>
                         <td>
                             <div class="d-flex align-items-center">
-                                <img src="https://mdbootstrap.com/img/new/avatars/8.jpg" alt=""
+                                <img src="{{ asset('foto_profile/' . $s->foto_profile) }}" alt=""
                                     style="width: 45px; height: 45px" class="rounded-circle mr-3" />
                                 <div class="ms-3">
                                     <p class="fw-bold mb-1">{{ $s->name }}</p>

@@ -34,13 +34,14 @@ class KelolaStaffController extends Controller
         $validated_data['password'] = Hash::make('password');
         $validated_data['role'] = 0;
 
+
         try {
             User::create($validated_data);
             session()->flash('message_success', 'Berhasil Menambah Staff');
-            alert()->success('Berhasil', 'Staff berhasil dihapus');
+            alert()->success('Berhasil', 'Staff berhasil ditambah');
         } catch (Exception $err) {
             session()->flash('message_fail', 'Gagal Menambah Staff');
-            alert()->error('Gagal', 'Staff Gagal dihapus');
+            alert()->error('Gagal', 'Staff Gagal ditambah');
         }
         return redirect()->route('kelola_staff');
     }

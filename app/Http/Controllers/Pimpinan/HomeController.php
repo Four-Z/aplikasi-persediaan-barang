@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Pimpinan;
 
 use App\Http\Controllers\Controller;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -24,6 +25,10 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('pimpinan.home');
+        $jumlah_staff = User::where('role', 0)->count();
+
+        return view('pimpinan.home', [
+            'jumlah_staff' => $jumlah_staff
+        ]);
     }
 }

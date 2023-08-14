@@ -22,7 +22,6 @@ Auth::routes();
 
 Route::middleware(['IsStaff'])->prefix('staff')->group(function () {
     Route::get('/home', [App\Http\Controllers\Staff\HomeController::class, 'index'])->name('staff.home');
-    Route::get('/profile', [App\Http\Controllers\Staff\ProfileController::class, 'index'])->name('staff.profile');
 
     Route::get('/stok-barang', [App\Http\Controllers\Staff\StokBarangController::class, 'index'])->name('stok_barang');
     Route::get('/tambah-barang', [App\Http\Controllers\Staff\StokBarangController::class, 'tambah_barang_page'])->name('tambah_barang_page');
@@ -59,8 +58,6 @@ Route::middleware(['IsStaff'])->prefix('staff')->group(function () {
 Route::middleware(['IsPimpinan'])->prefix('pimpinan')->group(function () {
     Route::get('/home', [App\Http\Controllers\Pimpinan\HomeController::class, 'index'])->name('pimpinan.home');
 
-    Route::get('/profile', [App\Http\Controllers\Pimpinan\ProfileController::class, 'index'])->name('pimpinan.profile');
-
     Route::get('/kelola-staff', [App\Http\Controllers\Pimpinan\KelolaStaffController::class, 'index'])->name('kelola_staff');
     Route::get('/tambah_staff', [App\Http\Controllers\Pimpinan\KelolaStaffController::class, 'tambah_staff_page'])->name('tambah_staff_page');
     Route::post('/tambah_staff', [App\Http\Controllers\Pimpinan\KelolaStaffController::class, 'tambah_staff'])->name('tambah_staff');
@@ -70,3 +67,6 @@ Route::middleware(['IsPimpinan'])->prefix('pimpinan')->group(function () {
     Route::get('/cari-laporan-barang', [App\Http\Controllers\Pimpinan\LaporanController::class, 'cari_laporan'])->name('pimpinan.cari_laporan');
     Route::get('/cetak-laporan-barang', [App\Http\Controllers\Pimpinan\LaporanController::class, 'cetak_laporan'])->name('pimpinan.cetak_laporan');
 });
+
+Route::get('/profile', [App\Http\Controllers\ProfileController::class, 'index'])->name('profile');
+Route::post('/profile', [App\Http\Controllers\ProfileController::class, 'update_profile'])->name('update.profile');

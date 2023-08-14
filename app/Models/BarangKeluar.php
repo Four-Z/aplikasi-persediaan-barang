@@ -21,7 +21,7 @@ class BarangKeluar extends Model
 
     public function supplier()
     {
-        return $this->belongsTo(Supplier::class);
+        return $this->belongsTo(Supplier::class)->withTrashed();
     }
 
     public function detailBarang()
@@ -31,6 +31,6 @@ class BarangKeluar extends Model
 
     public function staff()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class)->withTrashed();
     }
 }
