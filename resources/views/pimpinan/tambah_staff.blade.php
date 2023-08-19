@@ -26,13 +26,33 @@
                         <div class="col-md-12 mb-3">
                             <label class="labels">Email Staff</label>
                             <input type="text" class="form-control @error('email') is-invalid @enderror"
-                                placeholder="nama staff..." name="email" required />
+                                placeholder="email staff..." name="email" required />
                             @error('email')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>
                             @enderror
                         </div>
+
+                        <div class="col-md-12 mb-3">
+                            <label class="labels">Password</label>
+                            <input id="password" type="password"
+                                class="form-control @error('password') is-invalid @enderror" name="password"
+                                placeholder="password..." required autocomplete="new-password">
+                            @error('password')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
+                        </div>
+
+                        <div class="col-md-12 mb-3">
+                            <label class="labels">Konfirmasi Password</label>
+                            <input id="password-confirm" type="password" class="form-control" name="password_confirmation"
+                                placeholder="konfirmasi password..." required autocomplete="new-password">
+                        </div>
+
+
                     </div>
 
                     <div class="mt-5 text-center"><button class="btn btn-primary profile-button"
