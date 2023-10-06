@@ -2,6 +2,11 @@
 
 @section('css')
     <link href="{{ asset('js/dataTables.bootstrap4.min.css') }}" rel="stylesheet">
+    <script>
+        $('#dataTable').dataTable({
+            "order": []
+        });
+    </script>
 @endsection
 
 @section('content')
@@ -75,6 +80,11 @@
 @endsection
 
 @section('script')
+    <script>
+        $('#dataTable').dataTable({
+            "order": []
+        });
+    </script>
     <script src="{{ asset('js/jquery.min.js') }}"></script>
     <!-- Page level plugins -->
     <script src="{{ asset('js/jquery.dataTables.min.js') }}"></script>

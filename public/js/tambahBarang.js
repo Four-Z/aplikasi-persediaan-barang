@@ -18,7 +18,7 @@ function add() {
             <input type="text" class="form-control" value="barang_value" name="nama_barang[]" hidden required readonly />
         </div>
         <div class="col-md-2">
-            <input type="number" class="form-control" value="jumlah_barang_value" name="jumlah_barang[]" required readonly />
+            <input type="number" class="form-control" value="jumlah_barang_value" name="jumlah_barang[]" required />
         </div>
         <div class="col-md-2">
             <div class="form-group col-md-2">

@@ -16,7 +16,7 @@ class BarangMasukController extends Controller
 {
     public function index()
     {
-        $barang_masuk = BarangMasuk::all();
+        $barang_masuk = BarangMasuk::latest()->get();
         return view('staff.barang_masuk', [
             'barang_masuk' => $barang_masuk
         ]);

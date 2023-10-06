@@ -2,3 +2,7 @@
 $(document).ready(function() {
   $('#dataTable').DataTable();
 });
+
+$('#dataTable').dataTable({
+    "order": []
+});
